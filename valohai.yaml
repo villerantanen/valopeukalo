@@ -2,15 +2,12 @@
 
 - step:
     name: Train model from scratch
-    image: tensorflow/tensorflow:1.3.0-gpu-py3
+    image: villerantanen/valopeukalo
+    #image: tensorflow/tensorflow:1.3.0-gpu-py3
     #image: valohai/darknet:b61bcf5-cuda8.0-cudnn5-devel-ubuntu16.04
     command: 
       - tar xvf $VH_INPUTS_DIR/JPEGImages/JPEGImages.tar
       - tar xvf $VH_INPUTS_DIR/Annotations/Annotations.tar
-      - apt-get update -y
-      - apt-get install -y python3-pip
-      - pip3 install cython opencv-python
-      - pip3 install .
       - flow --train --dataset JPEGImages --annotation Annotations --model cfg/yolo-thumb.cfg --load $VH_INPUTS_DIR/weights/yolo.weights --gpu 1.0 --epoch 1500 --save 2000
       - flow --model cfg/yolo-thumb.cfg --load -1 --savepb
       - mv built_graph $VH_OUTPUTS_DIR
@@ -24,7 +21,7 @@
 
 - step:
     name: Worker environment check
-    image: valohai/darknet:b61bcf5-cuda8.0-cudnn5-devel-ubuntu16.04
+    image: villerantanen/valopeukalo
     command:
       - pwd
       - ls -la
