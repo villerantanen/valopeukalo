@@ -9,7 +9,7 @@
         default: http://k.moonq.org:8765/JPEGImages.tar
       - name: Annotations
         default: http://k.moonq.org:8765/Annotations.tar
-      - name: yolo.weights
+      - name: weights
         default: https://pjreddie.com/media/files/yolo.weights
 
 - step:
