@@ -12,11 +12,11 @@
       - mv built_graph $VH_OUTPUTS_DIR
     inputs:
       - name: JPEGImages
-        default: http://k.moonq.org:8080/pub/JPEGImages.tar
+        default: http://k.moonq.org/pub/JPEGImages.tar
       - name: Annotations
-        default: http://k.moonq.org:8080/pub/Annotations.tar
+        default: http://k.moonq.org/pub/Annotations.tar
       - name: weights
-        default: http://k.moonq.org:8080/pub/yolo.weights
+        default: http://k.moonq.org/pub/yolo.weights
 
 - step:
     name: Worker environment check
