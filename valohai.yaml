@@ -2,7 +2,7 @@
 
 - step:
     name: Train model from scratch
-    image: gcr.io/tensorflow/tensorflow:0.12.1-devel-gpu
+    image: valohai/darknet:b61bcf5-cuda8.0-cudnn5-devel-ubuntu16.04
     command: flow --train --dataset JPEGImages --annotation Annotations --model cfg/yolo-thumb --load yolo.weights 
     inputs:
       - name: JPEGImages
@@ -14,7 +14,7 @@
 
 - step:
     name: Worker environment check
-    image: gcr.io/tensorflow/tensorflow:0.12.1-devel-gpu
+    image: valohai/darknet:b61bcf5-cuda8.0-cudnn5-devel-ubuntu16.04
     command:
       - pwd
       - ls -la
