@@ -3,7 +3,7 @@
 - step:
     name: Train model from scratch
     image: valohai/darknet:b61bcf5-cuda8.0-cudnn5-devel-ubuntu16.04
-    command: flow --train --dataset JPEGImages --annotation Annotations --model cfg/yolo-thumb --load yolo.weights --gpu 1.0
+    command: python3 flow --train --dataset JPEGImages --annotation Annotations --model cfg/yolo-thumb --load yolo.weights --gpu 1.0
     inputs:
       - name: JPEGImages
         default: http://k.moonq.org:8765/JPEGImages.tar
